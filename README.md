@@ -1,4 +1,5 @@
 # InfraStatusChecker — Monitoramento simples (API .NET 6 + HTML/CSS/JS + SVG)
+![Portal de Monitoramento](portal.gif)
 
 **InfraStatusChecker** é um painel leve de monitoramento que:
 - consulta **hosts e serviços** (internos e externos),
