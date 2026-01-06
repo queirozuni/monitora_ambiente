@@ -181,4 +181,4 @@ Você pode **usar, copiar, modificar e distribuir** livremente, inclusive para u
 
 ## 📌 Créditos
 
-Projeto pensado para monitoramento interno com diagrama operacional, priorizando simplicidade, baixo acoplamento e fácil manutenção por equipes de infraestrutura. Principal diferencia é poder montar o mapa do ambiente e saber de fato o que determinada indisponibilidade afeta.
+Projeto pensado para monitoramento interno com diagrama operacional, priorizando simplicidade, baixo acoplamento e fácil manutenção por equipes de infraestrutura. Principal vantagem é poder montar o mapa do ambiente e saber de fato o que determinada indisponibilidade afeta.
