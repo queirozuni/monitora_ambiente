@@ -106,57 +106,13 @@ const API_URL = "/api/api/status";
 ```
 
 ### Mapeamento nome → IDs do SVG
-Também em `web/static/app.js`:
+Também no html ajustar os mapeamentos:
 ```js
 const MAP_NAME = {
-  "CARDIO WEB": ["11"],
-  "GCN": ["19"],
-  "CARDIO TISS": ["9"],
-  "HILUM": ["4"],
-  "CARDIO PTU": ["5"],
-  "GW": ["6"],
-  "CARDIO PORTAL": ["8"],
-  "CARDIO ANEXO": ["12"],
-  "MONITORAMENTO TISS": ["3"],
-  "CARDIO AUDITORIA I": ["1"],
-  "CARDIO AUDITORIA II": ["2"],
-  "BANCO CARDIO HILUM": ["104","103"],
-  "BANCO MONIT TISS": ["10"],
-  "MATRIX NET": ["20"],
-  "MATRIX DIAGNOSIS": ["13"],
-  "MATRIX CONNECT": ["14"],
-  "PORTAL EMPRESARIAL": ["21"],
-  "BANCO PORTAL EMPRESARIAL": ["22","21"],
-  "PORTAL RH": ["23"],
-  "BANCO PIRAMIDE": ["24"],
-  "PIRAMIDE RH3 AP": ["25"],
-  "ESOCIAL": ["27"],
-  "GCE": ["34"],
-  "SISTEMA TS": ["30"],
-  "SISTEMA MDM": ["31"],
-  "MENSAGERIA TI SAUDE": ["35"],
-
-  "AUDITORIA CARDIO WEB": ["11"],
-  "CADASTRO CARDIO WEB": ["11"],
-  "CONFIGURAÇÃO CARDIO WEB": ["11"],
-  "LEGADO CARDIO WEB": ["11"],
-  "SITE CARDIO WEB": ["11"],
-  "CHAT INTERCAMBIO CARDIO WEB": ["11"],
-  "GCN CARDIO WEB": ["11","19"],
-  "SERVIÇO TISS": ["9"],
-  "PTU": ["5"],
-  "AUDITORIA CARDIO PORTAL": ["8"],
-  "CARDIO APPS": ["8"],
-  "CONFIGURAÇÃO CARDIO PORTAL": ["8"],
-  "SMS CARDIO PORTAL": ["8"],
-  "SITE MONITORAMENTO TISS": ["3"],
-  "AUDITORIA CARDIO": ["1","2"],
-  "AUDITORIA SISPAC CARDIO": ["1","2"],
-  "PORTAL RESULTADOS MATRIX NET": ["20"],
-  "INTEGRAÇÃO MV X MATRIX": ["18","13"],
-  "SITE PORTAL EMPRESARIAL": ["21"],
-  "SITE INTERACT": ["28"],
-  "TRABALHE CONOSCO": ["23"]
+  "TESTE": ["11"],
+  "TESTE": ["19"],
+  "TESTE": ["9"],
+  "TESTE": ["23"]
 };
 ```
 
@@ -180,7 +136,7 @@ alertAudio.volume = 1.0;  // 0.0 a 1.0
    - Lê a lista de alvos de `appsettings.json`.
    - Para cada alvo:
      - Tipo **H** → faz GET e mede latência; **OK** se `2xx`.
-     - Tipo **S** → faz TCP connect (80/443 por padrão) e mede latência.
+     - Tipo **S** → faz teste ping e mede latência.
    - Produz:
      - `contadores`: `servidoresOk`, `servidoresAlerta`, `servicosOk`, `servicosAlerta`.
      - `resultados`: itens com `status`, `nome`, `endereco`, `latenciaMs`, `erro`.
@@ -190,24 +146,6 @@ alertAudio.volume = 1.0;  // 0.0 a 1.0
    - Faz polling a cada **30s** (configurável).
    - Atualiza contadores, faixa de alertas, toca áudio ao detectar **mudança** nos alertas.
    - Pinta/pisca IDs mapeados no **SVG** conforme o status.
-
----
-
-## 🔧 Desenvolvimento
-
-### Rodar API localmente
-```bash
-cd api/InfraStatusChecker
-dotnet run
-# API em http://localhost:5000 (ou porta indicada no console)
-```
-Ajuste `API_URL` no front para apontar para a porta local.
-
-### Intervalo de atualização
-No `app.js`:
-```js
-setInterval(carregarStatus, 30_000); // 30 segundos
-```
 
 ---
 
@@ -241,14 +179,6 @@ Você pode **usar, copiar, modificar e distribuir** livremente, inclusive para u
 
 ---
 
-## 🤝 Contribuindo
-
-1. Faça um fork
-2. Crie sua branch: `feat/minha-melhoria`
-3. Envie PR com descrição clara (prints ajudam em alterações de UI)
-
----
-
 ## 📌 Créditos
 
-Projeto pensado para monitoramento interno com diagrama operacional, priorizando simplicidade, baixo acoplamento e fácil manutenção por equipes de infraestrutura.
+Projeto pensado para monitoramento interno com diagrama operacional, priorizando simplicidade, baixo acoplamento e fácil manutenção por equipes de infraestrutura. Principal diferencia é poder montar o mapa do ambiente e saber de fato o que determinada indisponibilidade afeta.
